@@ -1,0 +1,15 @@
+.nav-box {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  left: 25px;
+  top: 25px;
+  z-index: 999;
+  max-width: 250px;
+  height: 35px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 3pt;
+  padding: 0 25px 0 10px;
+}
