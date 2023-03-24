@@ -25,7 +25,7 @@ export const pages = [
   },
   {
     title: "Reformation",
-    path: "/reformation1",
+    path: "/reformation",
   },
   {
     title: "Rel. Wars",
@@ -89,7 +89,7 @@ export const pages = [
   },
   {
     title: "Nationalism",
-    path: "/Nationalism",
+    path: "/nationalism",
   },
   {
     title: "Imperialism-1",
