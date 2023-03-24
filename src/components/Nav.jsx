@@ -1,29 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Downsvg } from "./downsvg.jsx";
+import { Link, useLocation } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { locationState } from "./globalState";
+import { pages } from "./Pages";
 
 export function Nav() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [location, setLocation] = React.useState("");
-  const handleClick = (e) => {
+  const [location, setLocation] = useRecoilState(locationState);
+  const [divWidth, setDivWidth] = React.useState("250px");
+  const navRef = React.useRef();
+
+  React.useEffect(() => {
+    setDivWidth(navRef.current.offsetWidth);
+  }, [isOpen]);
+
+  const handleOpen = () => {
     setIsOpen(!isOpen);
-    console.log(e.target);
   };
+
+  const handleClick = (e) => {
+    setLocation(e.target.innerText);
+    setIsOpen(false);
+  };
+
+  const currentRoute = useLocation();
+  const pagePath = pages.find((d) => d.path === currentRoute.pathname);
+
   return (
     <>
-      <div className="nav-box" onClick={handleClick}>
-        <span>
-          <span>{location || "Wk1 (Monday)"}</span>
-          <span>
-            <Downsvg />
-          </span>
-        </span>
-      </div>
+      <button
+        ref={navRef}
+        className={isOpen ? "nav-box nav-box-open" : "nav-box"}
+        onClick={handleOpen}
+      >
+        <span>Lecture:&nbsp;</span>
+        <span className="nav-carot">{pagePath.title} </span>
+      </button>
       {isOpen ? (
-        <div className="dropdown">
-          <Link to="/" onClick={handleClick}>
-            <span>Wk1 (Monday)</span>{" "}
-          </Link>
+        <div className="dropdown" style={{ width: divWidth - 37 }}>
+          {pages
+            ? pages.map((d, i) => {
+                return (
+                  <Link to={d.path} key={`lecture${i * 12341}`}>
+                    <span onClick={handleClick}>{d.title}</span>{" "}
+                  </Link>
+                );
+              })
+            : null}
         </div>
       ) : null}
     </>
