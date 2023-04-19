@@ -72,10 +72,6 @@ export const pages = [
     path: "/discussion5",
   },
   {
-    title: "19c Revs.",
-    path: "/19c-revs",
-  },
-  {
     title: "Ind Rev.",
     path: "/ind-rev",
   },
@@ -88,44 +84,45 @@ export const pages = [
     path: "/discussion6",
   },
   {
-    title: "Nationalism",
-    path: "/nationalism",
+    title: "19c Revs.",
+    path: "/19c-revs",
   },
   {
-    title: "Imperialism-1",
-    path: "/imperialism1",
+    title: "Nationalism",
+    path: "/nationalism",
   },
   {
     title: "Discussion7",
     path: "/discussion7",
   },
   {
-    title: "Imperialism-2",
-    path: "/imperialism2",
+    title: "Imperialism-1",
+    path: "/imperialism1",
   },
   {
-    title: "WWI",
-    path: "/wwi",
+    title: "Imperialism-2",
+    path: "/imperialism2",
   },
   {
     title: "Discussion8",
     path: "/discussion8",
   },
   {
+    title: "WWI",
+    path: "/wwi",
+  },
+
+  {
     title: "WWI-Consequences",
     path: "/wwi-consequences",
-  },
-  {
-    title: "Interwar-1",
-    path: "/interwar1",
   },
   {
     title: "Discussion9",
     path: "/discussion9",
   },
   {
-    title: "Interwar-2",
-    path: "/interwar2",
+    title: "Interwar-1",
+    path: "/interwar1",
   },
   {
     title: "WWII",
