@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { locationState } from "./globalState";
-import { pages } from "./Pages";
+import { pages } from "./pages";
 
 export function Nav() {
   const [isOpen, setIsOpen] = React.useState(false);
