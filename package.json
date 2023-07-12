@@ -1,6 +1,7 @@
 {
   "name": "modern_europe",
   "private": true,
+  "homepage": "/modern-europe/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
