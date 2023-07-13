@@ -8,7 +8,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RecoilRoot>
-      <BrowserRouter basename="/teaching/modern-europe/lectures/">
+      <BrowserRouter basename="/modern-europe/">
         <App />
       </BrowserRouter>
     </RecoilRoot>
