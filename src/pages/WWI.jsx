@@ -3,6 +3,6 @@ import { PageTemplate } from "../components/PageTemplate";
 
 export function WWI() {
   return (
-    <PageTemplate url="https://raw.githubusercontent.com/nkmwicz/teach-lectures/master/modern-europe/33-wwii.json" />
+    <PageTemplate url="https://raw.githubusercontent.com/nkmwicz/teach-lectures/master/modern-europe/27-wwi.json" />
   );
 }
