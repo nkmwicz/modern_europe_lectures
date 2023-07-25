@@ -50,3 +50,8 @@
 p, li {
   font-size: calc(10px + 2vw) !important;
 }
+
+.mymap{
+  width: 100%;
+  height: 100%;
+}
