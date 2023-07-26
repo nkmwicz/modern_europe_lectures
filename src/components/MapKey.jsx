@@ -92,11 +92,11 @@ export function MapKey() {
             </button>
           </div>
           <div style={bodyStyle}>
-            {Object.entries(slide.stateColors).map(([key, value]) => (
-              <div style={innerBodyStyle}>
+            {Object.entries(slide.stateColors).map(([key, value], i) => (
+              <div style={innerBodyStyle} key={`${key}${value}${i}`}>
                 {key}
                 <div>
-                  <svg class="circleSVG" width="25" height="25">
+                  <svg className="circleSVG" width="25" height="25">
                     <circle
                       cx="12.5"
                       cy="12.5"
