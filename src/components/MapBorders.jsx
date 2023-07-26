@@ -7,6 +7,7 @@ import {
 } from "./globalState";
 import { Polygon, Popup, useMap } from "react-leaflet";
 import { useEffect, useMemo } from "react";
+import { MapGlobalBorders } from "./MapGlobalBorders";
 
 export function MapBorders() {
   const map1900 = useRecoilValue(map1900State);
@@ -33,58 +34,10 @@ export function MapBorders() {
     }
   }, [slide.mapCenter]);
   const memoedMap1900 = useMemo(() => {
-    const borders1900 = map1900.map((feature, i) => {
-      return (
-        <Polygon
-          key={`map1900${i}`}
-          positions={feature.geometry.coordinates}
-          pathOptions={{
-            color: "black",
-            weight: 1,
-            opacity: 0.8,
-            fillColor: slide.stateColors
-              ? slide.stateColors[feature.properties.NAME]
-              : "grey",
-          }}
-        >
-          <Popup>
-            <strong>{feature.properties.NAME}</strong>
-            {slide.stateCaption ? <br /> : null}
-            {slide.stateCaption
-              ? `${slide.stateCaption[feature.properties.NAME]}`
-              : null}
-          </Popup>
-        </Polygon>
-      );
-    });
-    return borders1900;
+    return <MapGlobalBorders mapState={map1900} slide={slide} />;
   }, [map1900, slide]);
   const memoedMap1914 = useMemo(() => {
-    const borders1914 = map1914.map((feature, i) => {
-      return (
-        <Polygon
-          key={`map1900${i}`}
-          positions={feature.geometry.coordinates}
-          pathOptions={{
-            color: "black",
-            weight: 1,
-            opacity: 0.8,
-            fillColor: slide.stateColors
-              ? slide.stateColors[feature.properties.NAME]
-              : "grey",
-          }}
-        >
-          <Popup>
-            <strong>{feature.properties.NAME}</strong>
-            {slide.stateCaption ? <br /> : null}
-            {slide.stateCaption
-              ? `${slide.stateCaption[feature.properties.NAME]}`
-              : null}
-          </Popup>
-        </Polygon>
-      );
-    });
-    return borders1914;
+    return <MapGlobalBorders mapState={map1914} slide={slide} />;
   }, [map1914, slide]);
 
   return (
