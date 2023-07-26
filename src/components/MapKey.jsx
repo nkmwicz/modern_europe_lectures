@@ -16,7 +16,7 @@ export function MapKey() {
     zIndex: "999",
     border: "1px solid black",
     borderRadius: "5px",
-    backgroundColor: "white",
+    backgroundColor: "lightgrey",
     bottom: "10px",
     left: "10px",
     cursor: "pointer",
@@ -31,7 +31,7 @@ export function MapKey() {
     zIndex: "999",
     border: "1px solid black",
     borderRadius: "5px",
-    backgroundColor: "white",
+    backgroundColor: "lightgrey",
     bottom: "10px",
     left: "10px",
   };
@@ -47,6 +47,7 @@ export function MapKey() {
     justifyContent: "center",
     flexDirection: "column",
     flexWrap: "wrap",
+    padding: "1em",
   };
   const innerBodyStyle = {
     display: "flex",
@@ -57,7 +58,14 @@ export function MapKey() {
     fontSize: "24px",
     flexWrap: "no wrap",
     gap: "1em",
-    padding: "0.5em",
+  };
+
+  const circleSVG = {
+    backgroundColor: "grey",
+    height: "25px",
+    width: "25px",
+    borderRadius: "50%",
+    opacity: "0.8",
   };
 
   const closeBtn = {
@@ -87,14 +95,18 @@ export function MapKey() {
             {Object.entries(slide.stateColors).map(([key, value]) => (
               <div style={innerBodyStyle}>
                 {key}
-                <div
-                  style={{
-                    backgroundColor: value,
-                    height: "25px",
-                    width: "25px",
-                    borderRadius: "50%",
-                  }}
-                ></div>
+                <div>
+                  <svg class="circleSVG" width="25" height="25">
+                    <circle
+                      cx="12.5"
+                      cy="12.5"
+                      r="10"
+                      stroke="black"
+                      fill={value}
+                      fillOpacity={0.4}
+                    />
+                  </svg>
+                </div>
               </div>
             ))}
           </div>
