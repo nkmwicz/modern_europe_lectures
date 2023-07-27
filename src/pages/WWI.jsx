@@ -1,19 +1,31 @@
 import React, { useEffect } from "react";
 import { PageTemplate } from "../components/PageTemplate";
 import { PageTemplateMap } from "../components/PageTemplateMap";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
+  allSlides,
   map1900State,
   map1914State,
   map1920State,
+  mapCenterState,
 } from "../components/globalState";
 import flip from "@turf/flip";
 
 export function WWI() {
-  const mapCenter = [41.9, 12.5];
+  const [mapCenter, setMapCenter] = useRecoilState(mapCenterState);
+  const theSlides = useRecoilValue(allSlides);
   const [map1900, setMap1900] = useRecoilState(map1900State);
   const [map1914, setMap1914] = useRecoilState(map1914State);
   const [map1920, setMap1920] = useRecoilState(map1920State);
+
+  useEffect(() => {
+    const firstMapCenter = theSlides.find((slide) => {
+      return slide.hasOwnProperty("mapCenter");
+    });
+    if (firstMapCenter) {
+      setMapCenter(firstMapCenter.mapCenter);
+    }
+  }, [theSlides]);
 
   useEffect(() => {
     async function getMaps() {
