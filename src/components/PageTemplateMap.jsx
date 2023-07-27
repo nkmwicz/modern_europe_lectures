@@ -36,11 +36,18 @@ export function PageTemplateMap({ url, mapCenter }) {
   return (
     <>
       {slide.map ? (
-        <SplitSlideChild>
-          <Map mapCenter={mapCenter} />
-        </SplitSlideChild>
-      ) : null}
-      {slide.side ? <QuickLayoutNoArrows mode={"dark"} slide={slide} /> : null}
+        <div className="mainDark">
+          <SplitSlideChild
+            title={slide.title}
+            subTitle={slide.subTitle}
+            text={slide.text}
+          >
+            <Map mapCenter={mapCenter} />
+          </SplitSlideChild>
+        </div>
+      ) : (
+        <QuickLayoutNoArrows mode={"dark"} slide={slide} />
+      )}
     </>
   );
 }
