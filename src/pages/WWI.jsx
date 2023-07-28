@@ -12,21 +12,12 @@ import {
 import flip from "@turf/flip";
 import { use1900 } from "../mapFetches/use1900";
 import { use1914 } from "../mapFetches/use1914";
+import { useMapCenterOfFirstMap } from "../hooks/useMapCenterOfFirstMap";
 
 export function WWI() {
-  const [mapCenter, setMapCenter] = useRecoilState(mapCenterState);
-  const theSlides = useRecoilValue(allSlides);
+  const mapCenter = useMapCenterOfFirstMap();
   use1900();
   use1914();
-
-  useEffect(() => {
-    const firstMapCenter = theSlides.find((slide) => {
-      return slide.hasOwnProperty("mapCenter");
-    });
-    if (firstMapCenter) {
-      setMapCenter(firstMapCenter.mapCenter);
-    }
-  }, [theSlides]);
 
   return (
     <PageTemplateMap
