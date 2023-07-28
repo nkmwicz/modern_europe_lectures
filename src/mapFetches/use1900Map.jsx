@@ -2,7 +2,7 @@ import flip from "@turf/flip";
 import { useRecoilState } from "recoil";
 import { map1900State } from "../components/globalState";
 import { useEffect } from "react";
-export function use1900() {
+export function use1900Map() {
   const [map1900, setMap1900] = useRecoilState(map1900State);
   useEffect(() => {
     async function getMap() {

@@ -1,23 +1,13 @@
 import React, { useEffect } from "react";
-import { PageTemplate } from "../components/PageTemplate";
 import { PageTemplateMap } from "../components/PageTemplateMap";
-import { useRecoilState, useRecoilValue } from "recoil";
-import {
-  allSlides,
-  map1900State,
-  map1914State,
-  map1920State,
-  mapCenterState,
-} from "../components/globalState";
-import flip from "@turf/flip";
-import { use1900 } from "../mapFetches/use1900";
-import { use1914 } from "../mapFetches/use1914";
+import { use1900Map } from "../mapFetches/use1900Map";
+import { use1914Map } from "../mapFetches/use1914Map";
 import { useMapCenterOfFirstMap } from "../hooks/useMapCenterOfFirstMap";
 
 export function WWI() {
   const mapCenter = useMapCenterOfFirstMap();
-  use1900();
-  use1914();
+  use1900Map();
+  use1914Map();
 
   return (
     <PageTemplateMap
