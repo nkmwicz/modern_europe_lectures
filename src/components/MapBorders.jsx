@@ -33,17 +33,13 @@ export function MapBorders() {
       }
     }
   }, [slide.mapCenter]);
-  const memoedMap1900 = useMemo(() => {
-    return <MapGlobalBorders mapState={map1900} slide={slide} />;
-  }, [map1900, slide]);
-  const memoedMap1914 = useMemo(() => {
-    return <MapGlobalBorders mapState={map1914} slide={slide} />;
-  }, [map1914, slide]);
 
   return (
     <>
-      {slide.year === 1900 ? memoedMap1900 : null}
-      {slide.year === 1914 ? memoedMap1914 : null}
+      <MapGlobalBorders
+        mapState={slide.year === 1900 ? map1900 : map1914}
+        slide={slide}
+      />
     </>
   );
 }
