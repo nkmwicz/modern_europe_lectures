@@ -34,12 +34,12 @@ export function PageTemplateMap({ url, mapCenter }) {
       setIsLoading(false);
       if (param === null || param === undefined) {
         setSlideIndex(0);
-        setSearchParams({ slideIndex: slideIndex });
+        setSearchParams({ slide: slideIndex });
         return;
       }
       if (param > data.slides.length - 1) {
         setSlideIndex(data.slides.length - 1);
-        setSearchParams({ slideIndex: data.slides.length - 1 });
+        setSearchParams({ slide: data.slides.length - 1 });
         return;
       }
       if (param < 0) {
@@ -49,12 +49,12 @@ export function PageTemplateMap({ url, mapCenter }) {
       }
       if (!isNumber(param)) {
         setSlideIndex(parseInt(0));
-        setSearchParams({ slideIndex: 0 });
+        setSearchParams({ slide: 0 });
         return;
       }
       if (param !== null || param !== undefined) {
         setSlideIndex(parseInt(param));
-        setSearchParams({ slideIndex: param });
+        setSearchParams({ slide: param });
         return;
       }
     }
@@ -62,7 +62,7 @@ export function PageTemplateMap({ url, mapCenter }) {
   }, []);
 
   React.useEffect(() => {
-    setSearchParams({ slideIndex: slideIndex });
+    setSearchParams({ slide: slideIndex });
   }, [slideIndex]);
 
   if (isLoading) {
