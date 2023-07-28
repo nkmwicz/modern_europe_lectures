@@ -47,7 +47,7 @@ export function WWI() {
           setMap1914(data1914);
         }
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     }
     getMaps();
