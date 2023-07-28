@@ -31,7 +31,7 @@ export function MapGlobalBorders({ mapState, slide }) {
           weight: 1,
           opacity: 0.8,
           fillColor: slide.stateColors
-            ? slide.stateColors[feature.properties.NAME]
+            ? slide.stateColors[feature.properties.SUBJECTO]
             : "grey",
         }}
       >
